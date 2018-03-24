@@ -1,0 +1,67 @@
+page-home {
+    .main-content{
+        text-align: center;
+        height:100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .title{
+            font-size:130px;
+            font-weight: bold;
+            color:#fff;
+            margin:0px;
+            padding:0px;
+        }
+        .msg{
+            margin:0 0 30px 0;
+            padding:0;
+            font-size:18px;
+            color:#fff;
+        }
+        .create-bt{
+            font-weight: bold;
+            font-size:18px;
+        }
+        .pass{
+            background-color: #fff;
+            color: #333;
+        }
+    }
+    .ya-header{
+        .logo{
+            width: auto;
+            height: 100%;
+            margin-right:20px;
+            margin-bottom:4px;
+        }
+        .balance{
+            color:#333;
+        }
+    }
+    .main-content-created{
+        height:100%;
+        .items-list{
+            .balance{
+                text-align: center;
+                background-color: #8D48AB;
+                font-size: 22px;
+                font-weight: bold;
+                color:#fff;
+            }
+            .name{
+                text-align: center;
+                font-size: 36px;
+                font-weight: bold;
+                color:#fff;
+                .addrss{
+                    font-size: 24px;
+                }
+            }
+            .app-font-25 ion-label{
+                white-space: inherit;
+                font-size: 36px;
+            }
+        }
+    }
+}

@@ -1,0 +1,75 @@
+page-signup {
+    background-color: #FA6730;
+    .main-content{
+        background-color: #FA6730;
+        text-align: center;
+        height:100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .title{
+            font-size:80px;
+            color:#fff;
+            margin:0px;
+            padding:0px;
+        }
+        .msg{
+            margin:0 0 20px 0;
+            padding:0;
+            color:#fff;
+            max-width:500px;
+        }
+        .description{
+            margin:30px 0 0 0;
+            padding:0;
+            color:#fff;
+            max-width:500px;
+            font-weight: bold;
+            text-align: left;
+        }
+        .careful{
+            color:#fff;
+        }
+        .ya-bt{
+            width:150px;
+            height:150px;
+            font-size: 60px;
+            border-radius:14px;
+            box-shadow:0px 4px 0px 0px #808080;
+            margin-bottom:40px;
+        }
+        .ya-bt:active{
+            box-shadow:none;
+        }
+        .show-wallet{
+            max-width: 500px;
+            .show-wallet-base64{
+                color:#fff;
+                padding:10px;
+                background-color: #333;
+                max-width:70%;
+                margin-left:15%;
+            }
+        }
+        .address-block{
+            margin:5px;
+            text-align: left;
+            .label{
+                font-weight: bold;
+                color:#fff;
+            }
+            .address{
+                background-color: #333;
+                color:#fff;
+                padding:5px 10px;
+            }
+            button{
+                color:#666;
+            }
+        }
+        .finish-bt{
+            margin-top:25px;
+        }
+    }
+}

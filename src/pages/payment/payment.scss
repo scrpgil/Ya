@@ -1,0 +1,52 @@
+page-payment {
+    .main-content{
+        text-align: center;
+        height:100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .back{
+            text-align: left;
+        }
+        .title{
+            color:#fff;
+            font-size: 24px;
+            margin-top:20px;
+            border-bottom: 1px solid #fff;
+            font-weight: bold;
+        }
+        .msg{
+            margin:0 0 30px 0;
+            padding:0;
+            font-size:18px;
+            color:#fff;
+        }
+        .create-bt{
+            font-weight: bold;
+            font-size:18px;
+        }
+        .pass{
+            background-color: #fff;
+            color: #333;
+        }
+        .description{
+            color:#fff;
+        }
+        .address-block{
+            margin:5px;
+            text-align: left;
+            .label{
+                font-weight: bold;
+                color:#fff;
+            }
+            .address{
+                background-color: #333;
+                color:#fff;
+                padding:5px 10px;
+            }
+            button{
+                color:#666;
+            }
+        }
+    }
+}

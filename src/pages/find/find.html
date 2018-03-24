@@ -1,0 +1,24 @@
+<ion-content class="generalBackgroundColor">
+  <div class="main-content">
+    <ion-grid no-padding>
+      <ion-row  justify-content-center>
+        <ion-col col-sm-12 col-md-6>
+          <div class="title">
+            Find Friends on Nickname.
+          </div>
+          <div class="back">
+            <button ion-button small outline color="white" (click)="back()">Back</button>
+          </div>
+          <ion-searchbar (input)="onInput()"  [(ngModel)]="keyword" placeholder="Address or Nickname"></ion-searchbar>
+        </ion-col>
+      </ion-row>
+      <ion-row  justify-content-center>
+        <ion-col col-sm-12 col-md-6>
+          <ion-list no-lines>
+            <button (click)="addAddress(n)" ion-item class="name" *ngFor="let n of names;let idx = index;" [style.backgroundColor]="colors[idx % colors.length ]">{{n.name}}</button>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

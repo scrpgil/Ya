@@ -1,0 +1,31 @@
+<ion-content class="generalBackgroundColor">
+  <div class="main-content" *ngIf="wallet">
+    <ion-grid no-padding>
+      <ion-row  justify-content-center>
+        <ion-col col-sm-12 col-md-6>
+          <div class="title">
+            Buy Ya token.
+          </div>
+          <div class="back">
+            <button ion-button small outline color="white" (click)="back()">Back</button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <p class="description">入金用アドレスにメッセージをつけて1xem入金すると100Yaトークンを送付します。</p>
+    <div class="address-block">
+      <div class="label">入金先：</div>
+      <button ion-button color="sub" icon-end (click)="copy(YA_ADDRESS)">
+        {{YA_ADDRESS}}
+        <ion-icon name="copy"></ion-icon>
+      </button>
+    </div>
+    <div class="address-block">
+      <div class="label">メッセージ(あなたのアドレス)：</div>
+      <button ion-button color="sub" icon-end (click)="copy(wallet.accounts[0].address)">
+        {{wallet.accounts[0].address}}
+        <ion-icon name="copy"></ion-icon>
+      </button>
+    </div>
+  </div>
+</ion-content>

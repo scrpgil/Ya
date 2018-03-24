@@ -1,0 +1,89 @@
+<ng-container *ngIf="0">
+  <ion-header class="ya-header">
+    <ion-toolbar color="white">
+      <ion-buttons left>
+        <button ion-button>
+          <img class="logo" src="assets/imgs/logo.png"/>
+        </button>
+      </ion-buttons>
+      <div class="balance">
+        <div class="ya">
+          <ng-container *ngIf="ya_balance >= 0">Ya：{{(ya_balance | fmtNemValue)[0]}}.{{((ya_balance | fmtNemValue)[1])}}</ng-container>
+          <ng-container *ngIf="ya_balance < 0">Ya：0</ng-container>
+        </div>
+        <div class="xem">
+          XEM：{{(xem_balance | fmtNemValue)[0]}}.{{((xem_balance | fmtNemValue)[1])}}
+        </div>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+</ng-container>
+<ion-content class="generalBackgroundColor">
+  <ng-container *ngIf="!created">
+    <div class="main-content">
+      <h1 class="title">Ya!</h1>
+      <p class="msg">
+      Ya!はNEMブロックチェーンを用いた<br>
+      シンプルなコミュニケーションツールです.
+      </p>
+      <button class="create-bt" ion-button color="accent" (click)="goToCreateAccount()">ようこそ、Yaへ</button>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="created">
+    <ng-container *ngIf="!login">
+      <div class="main-content">
+        <h1 class="title">Ya!</h1>
+        <p class="msg">
+        Ya!はNEMブロックチェーンを用いた<br>
+        シンプルなコミュニケーションツールです.
+        <ion-input class="pass" type="password" [(ngModel)]="password" placeholder="パスワード"></ion-input>
+        </p>
+        <button class="create-bt" ion-button color="accent" (click)="chkPassword()">ログイン</button>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="login">
+      <div class="main-content-created">
+        <ion-grid no-padding>
+          <ion-row  justify-content-center>
+            <ion-col col-sm-12 col-md-8>
+              <div class="items-list">
+                <ion-list no-lines>
+                  <button ion-item class="balance" (click)="goToPaymentPage()">
+                    <div class="ya">
+                      <ng-container *ngIf="ya_balance >= 0">Ya：{{(ya_balance | fmtNemValue)[0]}}.{{((ya_balance | fmtNemValue)[1])}}</ng-container>
+                      <ng-container *ngIf="ya_balance < 0">Ya：0</ng-container>
+                    </div>
+                    <div class="xem">
+                      XEM：{{(xem_balance | fmtNemValue)[0]}}.{{((xem_balance | fmtNemValue)[1])}}
+                    </div>
+                  </button>
+                  <ion-item-sliding *ngFor="let i of items; let idx = index">
+                    <button ion-item class="name app-font-25" [style.backgroundColor]="colors[idx % colors.length ]" (click)="action(i)">
+                      <ng-container *ngIf="i.state != 1">
+                        <ng-container *ngIf="i.name != ''">
+                          {{i.name}}
+                        </ng-container>
+                        <ng-container *ngIf="i.name == ''">
+                          <span class="addrss">{{i.address}}</span>
+                        </ng-container>
+                      </ng-container>
+                      <ng-container *ngIf="i.state == 1">
+                        SEND YA!
+                      </ng-container>
+                    </button>
+                    <ion-item-options side="right" *ngIf="i.kind==1">
+                      <button ion-button color="danger" (click)="deleteItem(idx)">
+                        <ion-icon name="trash"></ion-icon>
+                        Delete
+                      </button>
+                    </ion-item-options>
+                  </ion-item-sliding>
+                </ion-list>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </ng-container>
+  </ng-container>
+</ion-content>

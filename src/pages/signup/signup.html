@@ -1,0 +1,84 @@
+<ion-content class="generalBackgroundColor">
+  <ng-container *ngIf="pageState == PASSWORD">
+    <div class="main-content">
+      <h1 class="title">Ya!</h1>
+      <p class="msg">
+      アカウントを作成します。<br>
+      パスワードを入力してください。<br>
+      ※パスワードはNanoWalletにインポートする時に必要です。<br>
+      ※パスワードは絶対に忘れないでください。
+      </p>
+      <ion-grid>
+        <ion-row  justify-content-center>
+          <ion-col col-sm-12 col-md-6>
+            <ion-list>
+              <ion-item>
+                <ion-input type="password" [(ngModel)]="password" placeholder="パスワード"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input type="password" [(ngModel)]="repassword" placeholder="パスワード(確認用)"></ion-input>
+              </ion-item>
+            </ion-list>
+            <button [disabled]="!(password !='' && password==repassword)" class="finish-bt" (click)="goToBackup()" round ion-button color="accent">次へ</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="pageState == ENTROPY">
+    <div class="main-content">
+      <h1 class="title">Ya!</h1>
+      <p class="msg">
+      これからウォレットを生成します。<br>
+      気が済むまで下のYaボタンを<br>
+      押してください。
+      </p>
+      <button class="ya-bt" ion-button color="accent" (click)="say()">Ya!</button>
+      <button [disabled]="!entropyDone" class="finish-bt" round ion-button color="accent" (click)="goToBackup()">気がすみました</button>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="pageState == BACKUP">
+    <div class="main-content">
+      <h1 class="title">Ya!</h1>
+      <p class="description">
+      ウォレットを作成しました。安全に使用するためにウォレットのバックアップファイルのダウンロードをおすすめします。<br>
+      </p>
+      <button ion-button color="sub" (click)="exportWallet()">
+        ウォレットをダウンロードする
+      </button>
+      <p class="description">
+      バックアップした.wltファイルがない場合は、下のボタンをクリックしてウォレットデータを表示し、ファイルを手動で作成します。
+      </p>
+      <button ion-button color="sub" (click)="showWallet()">
+        ウォレットファイルの表示
+      </button>
+      <div *ngIf="showBase64Wallet" class="show-wallet">
+        <div class="show-wallet-base64">
+          {{base64Wallet}}
+        </div>
+      </div>
+      <button class="finish-bt" round ion-button color="result" (click)="goToSend()">ウォレットをバックアップしました</button>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="pageState == SEND">
+    <div class="main-content" *ngIf="wallet">
+      <h1 class="title">Ya!</h1>
+      <p class="description">入金用アドレスにメッセージをつけて1xem入金すると100Yaトークンを送付します。</p>
+      <div class="address-block">
+        <div class="label">入金先：</div>
+        <button ion-button color="sub" icon-end (click)="copy(YA_ADDRESS)">
+          {{YA_ADDRESS}}
+          <ion-icon name="copy"></ion-icon>
+        </button>
+      </div>
+      <div class="address-block">
+        <div class="label">メッセージ(あなたのアドレス)：</div>
+        <button ion-button color="sub" icon-end (click)="copy(wallet.accounts[0].address)">
+          {{wallet.accounts[0].address}}
+          <ion-icon name="copy"></ion-icon>
+        </button>
+      </div>
+      <button class="finish-bt" round ion-button color="result" (click)="goToHome()">ホームに戻る</button>
+    </div>
+  </ng-container>
+</ion-content>

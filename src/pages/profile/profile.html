@@ -1,0 +1,24 @@
+<ion-content class="generalBackgroundColor">
+  <div class="main-content">
+    <ion-grid no-padding>
+      <ion-row  justify-content-center>
+        <ion-col col-sm-12 col-md-8>
+          <ion-list no-lines class="items-list">
+            <ion-item [style.backgroundColor]="colors[0]">
+              <ion-input [(ngModel)]="name" placeholder="Your Nickname"  (input)="updateFee()"></ion-input>
+            </ion-item>
+            <ion-item class="confirm" [style.backgroundColor]="colors[2]">
+              FEE: {{fee}} XEM
+              <button ion-button item-end [style.backgroundColor]="colors[5]" (click)="sendNickname()">Confirm</button>
+            </ion-item>
+            <button ion-item class="name" [style.backgroundColor]="colors[3]" (click)="exportWallet()">Export Wallet</button>
+            <button ion-item class="name  app-font-25" [style.backgroundColor]="colors[4]" (click)="copyAddress()">
+              <span class="address">{{wallet.accounts[0].address}}</span>
+            </button>
+            <button ion-item class="name" [style.backgroundColor]="colors[6]" (click)="back()">Back</button>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
